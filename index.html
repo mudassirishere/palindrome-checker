@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 50px 20px;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: #ffffff;
+      color: #2a5298;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #dce4f0;
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 36px;
+      font-weight: bold;
+      display: none;
+    }
+
+    #resultImage {
+      margin-top: 20px;
+      max-width: 300px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Palindrome Checker</h1>
+
+  <input type="text" id="inputText" placeholder="Enter text here">
+  <button onclick="checkPalindrome()">Check</button>
+
+  <div id="result"></div>
+  <img id="resultImage" src="" alt="Result Image">
+
+  <script>
+    function checkPalindrome() {
+      const input = document.getElementById("inputText").value;
+      const cleaned = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const reversed = cleaned.split('').reverse().join('');
+
+      const resultElement = document.getElementById("result");
+      const imageElement = document.getElementById("resultImage");
+
+      if (cleaned === "") {
+        resultElement.innerText = "Please enter some text.";
+        resultElement.style.color = "#ffff00";
+        resultElement.style.display = "block";
+        imageElement.style.display = "none";
+      } else if (cleaned === reversed) {
+        resultElement.innerText = `"${input}" is a Palindrome! ✅`;
+        resultElement.style.color = "#00ff00";
+        resultElement.style.display = "block";
+        imageElement.src = "https://cdn-icons-png.flaticon.com/512/845/845646.png"; // happy face
+        imageElement.alt = "Palindrome Success";
+        imageElement.style.display = "block";
+      } else {
+        resultElement.innerText = `"${input}" is NOT a Palindrome ❌`;
+        resultElement.style.color = "#ff4d4d";
+        resultElement.style.display = "block";
+        imageElement.src = "https://cdn-icons-png.flaticon.com/512/1828/1828665.png"; // sad face
+        imageElement.alt = "Palindrome Fail";
+        imageElement.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
