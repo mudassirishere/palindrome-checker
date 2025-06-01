@@ -8,7 +8,9 @@ It allows users to check whether the entered text is a palindrome — a word or 
 
 ## 🚀 Live Demo
 
-[Click here to view it live] (https://your-username.github.io/PalindromeChecker/)
+[Click here to view it live]
+
+https://mudassirishere.github.io/palindrome-checker/
 
 ---
 
